@@ -33,9 +33,9 @@ except for the maximum sequence length which we set to 128 rather than 512.
 
 As for the hyperparameters of RecAdam, 
 we choose the sigmoid annealing function,
-set the coefficient of the quadratic penalty $\gamma$ to 5,000, 
-select the best $k$ in \{0.05, 0.1, 0.2, 0.5, 1\},
-select the best $t_0$ in \{100, 250, 500\} for small tasks and \{250, 500, 1,000} for large tasks.
+set the coefficient of the quadratic penalty to 5,000, 
+select the best k in \{0.05, 0.1, 0.2, 0.5, 1\},
+select the best t_0 in \{100, 250, 500\} for small tasks and \{250, 500, 1,000} for large tasks.
 
 Here is an example script to get started:
 ```bash
@@ -78,8 +78,8 @@ To make sure the convergence of vanilla fine-tuning, we increase the training st
 
 As for the hyperparameters of RecAdam, 
 we choose the sigmoid annealing function,
-set the coefficient of the quadratic penalty $\gamma$ to 5,000, 
-select the best $k$ and $t_0$ in \{0.05, 0.1, 0.2, 0.5, 1\} and \{250, 500, 1,000\} respectively. 
+set the coefficient of the quadratic penalty to 5,000, 
+select the best k and t_0 in \{0.05, 0.1, 0.2, 0.5, 1\} and \{250, 500, 1,000\} respectively. 
 
 Here is an example script to get started:
 ```bash
