@@ -238,7 +238,8 @@ def train(args, train_dataset, new_model, pretrained_model, tokenizer):
     # Check if continuing training from a checkpoint
     if os.path.exists(args.model_name_or_path):
         # set global_step to gobal_step of last saved checkpoint from model path
-        global_step = int(args.model_name_or_path.split("-")[-1].split("/")[0])
+        global_step = int(args.model_name_or_path.split("-")[-1].split("/")[0]) if (
+                    'checkpoint-' in args.model_name_or_path) else 0
         epochs_trained = global_step // (len(train_dataloader) // args.gradient_accumulation_steps)
         steps_trained_in_current_epoch = global_step % (len(train_dataloader) // args.gradient_accumulation_steps)
 
@@ -318,7 +319,7 @@ def train(args, train_dataset, new_model, pretrained_model, tokenizer):
                         "Epoch: {}, Step: {}, Training loss: {:.2e} (avg {:.2e}), Euclid distance: {:.2e} (avg {:.2e}),"
                         "anneal lambda: {:.2e}, lr: {:.2e}".format(
                             epoch_num, step, loss.item(), (tr_loss - train_logging_loss) / args.train_logging_steps,
-                            dist, dist_sum / dist_num, anneal_lambda, scheduler.get_lr()[0]))
+                            dist, dist_sum / dist_num, anneal_lambda, scheduler.get_last_lr()[0]))
                     train_logging_loss = tr_loss
                     dist_sum, dist_num = 0.0, 0
 
@@ -334,7 +335,7 @@ def train(args, train_dataset, new_model, pretrained_model, tokenizer):
                             logs[eval_key] = value
 
                     loss_scalar = (tr_loss - logging_loss) / args.eval_logging_steps
-                    learning_rate_scalar = scheduler.get_lr()[0]
+                    learning_rate_scalar = scheduler.get_last_lr()[0]
                     logs["learning_rate"] = learning_rate_scalar
                     logs["loss"] = loss_scalar
                     logging_loss = tr_loss
@@ -614,7 +615,7 @@ def main():
 
     parser.add_argument("--train_logging_steps", type=int, default=100, help="Log training info every X updates steps.")
     parser.add_argument("--eval_logging_steps", type=int, default=500, help="Evaluate every X updates steps.")
-    parser.add_argument("--save_steps", type=int, default=500, help="Save checkpoint every X updates steps.")
+    parser.add_argument("--save_steps", type=int, default=5000000, help="Save checkpoint every X updates steps.")
     parser.add_argument(
         "--eval_all_checkpoints",
         action="store_true",

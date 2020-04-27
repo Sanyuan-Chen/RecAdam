@@ -64,7 +64,7 @@ python run_glue_with_RecAdam.py \
   --optimizer RecAdam \
   --recadam_anneal_fun sigmoid \
   --recadam_anneal_t0 1000 \
-  --recadam_anneal_k 0.2 \
+  --recadam_anneal_k 0.1 \
   --logging_Euclid_dist 
 ```
 
@@ -84,7 +84,7 @@ select the best k and t_0 in \{0.05, 0.1, 0.2, 0.5, 1\} and \{250, 500, 1,000\} 
 Here is an example script to get started:
 ```bash
 export GLUE_DIR=/path/to/glue
-export TASK_NAME=STS
+export TASK_NAME=STS-B
 
 python run_glue_with_RecAdam.py \
   --model_type bert \
@@ -106,6 +106,6 @@ python run_glue_with_RecAdam.py \
   --optimizer RecAdam \
   --recadam_anneal_fun sigmoid \
   --recadam_anneal_t0 1000 \
-  --recadam_anneal_k 1 \
+  --recadam_anneal_k 0.1 \
   --logging_Euclid_dist 
 ```
