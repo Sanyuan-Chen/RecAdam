@@ -2,7 +2,7 @@
 
 ## Introduction
 
-We provide **RecAdam** (Recall Adam) optimizer to facilitate fine-tuning deep pretrained language models (e.g. BERT, ALBERT) with less forgetting.
+We provide **RecAdam** (Recall Adam) optimizer to facilitate fine-tuning deep pretrained language models (e.g., BERT, ALBERT) with less forgetting.
 
 For a detailed description and experimental results, please refer to our paper: [Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting](https://arxiv.org/abs/2004.12651).
 
@@ -30,8 +30,8 @@ and unpacked to some directory `$GLUE_DIR`.
 
 ### With ALBERT-xxlarge model
 
-For ALBERT-xxlarge, we use the same hyperparamters following [ALBERT paper](https://arxiv.org/pdf/1909.11942.pdf),
-except for the maximum sequence length which we set to 128 rather than 512.
+For ALBERT-xxlarge, we use the same hyperparameters following [ALBERT paper](https://arxiv.org/pdf/1909.11942.pdf),
+except for the maximum sequence length, which we set to 128 rather than 512.
 
 As for the hyperparameters of RecAdam, 
 we choose the sigmoid annealing function,
@@ -73,7 +73,7 @@ python run_glue_with_RecAdam.py \
 
 ### With BERT-base model
 
-For BERT-base, we use the same hyperparamters following [BERT paper](https://arxiv.org/pdf/1810.04805.pdf).
+For BERT-base, we use the same hyperparameters following [BERT paper](https://arxiv.org/pdf/1810.04805.pdf).
 We set the learning rate to 2e-5, and find that the model has not converged on each GLUE task after 3 epochs fine-tuning.
 To make sure the convergence of vanilla fine-tuning, we increase the training step for each task 
 (61,360 on MNLI, 56,855 on QQP, 33,890 on QNLI, 21,050 on SST, 13,400 on CoLA, 9,000 on STS, 11,500 on MRPC, 7,800 on RTE),
