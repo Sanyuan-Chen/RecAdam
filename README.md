@@ -4,6 +4,8 @@
 
 We provide RecAdam (Recall Adam) optimizer to facilitate fine-tuning deep pretrained language models (e.g. BERT, ALBERT) with less forgetting.
 
+For a detailed description and experimental results, please refer to our paper: [Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting](https://arxiv.org/abs/2004.12651).
+
 ## Environment
 
 ```bash
@@ -65,6 +67,7 @@ python run_glue_with_RecAdam.py \
   --recadam_anneal_fun sigmoid \
   --recadam_anneal_t0 1000 \
   --recadam_anneal_k 0.1 \
+  --recadam_pretrain_cof 5000.0 \
   --logging_Euclid_dist 
 ```
 
@@ -107,5 +110,6 @@ python run_glue_with_RecAdam.py \
   --recadam_anneal_fun sigmoid \
   --recadam_anneal_t0 1000 \
   --recadam_anneal_k 0.1 \
+  --recadam_pretrain_cof 5000.0 \
   --logging_Euclid_dist 
 ```
