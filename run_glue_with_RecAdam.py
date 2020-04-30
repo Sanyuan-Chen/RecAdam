@@ -99,12 +99,12 @@ glue_tasks_acc_keys = {
 }
 
 MODEL_CLASSES = {
-    "bert": (BertConfig, BertForSequenceClassification, BertTokenizer, BertForPreTraining),
+    "bert": (BertConfig, BertForSequenceClassification, BertTokenizer),
     "xlnet": (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer),
     "xlm": (XLMConfig, XLMForSequenceClassification, XLMTokenizer),
     "roberta": (RobertaConfig, RobertaForSequenceClassification, RobertaTokenizer),
     "distilbert": (DistilBertConfig, DistilBertForSequenceClassification, DistilBertTokenizer),
-    "albert": (AlbertConfig, AlbertForSequenceClassification, AlbertTokenizer, AlbertForMaskedLM),
+    "albert": (AlbertConfig, AlbertForSequenceClassification, AlbertTokenizer),
     "xlmroberta": (XLMRobertaConfig, XLMRobertaForSequenceClassification, XLMRobertaTokenizer),
 }
 
@@ -731,7 +731,7 @@ def main():
         torch.distributed.barrier()  # Make sure only the first process in distributed training will download model & vocab
 
     args.model_type = args.model_type.lower()
-    config_class, model_class, tokenizer_class, pretraining_model_class = MODEL_CLASSES[args.model_type]
+    config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
     if args.model_type == "albert":
         config = config_class.from_pretrained(
             args.config_name if args.config_name else args.model_name_or_path,
