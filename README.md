@@ -4,7 +4,7 @@
 
 We provide **RecAdam** (Recall Adam) optimizer to facilitate fine-tuning deep pretrained language models (e.g., BERT, ALBERT) with less forgetting.
 
-For a detailed description and experimental results, please refer to our paper: [Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting](https://arxiv.org/abs/2004.12651).
+For a detailed description and experimental results, please refer to our paper: [Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting](https://arxiv.org/abs/2004.12651) (Accepted by EMNLP2020).
 
 ## Environment
 
