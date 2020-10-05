@@ -108,7 +108,7 @@ class RecAdam(Optimizer):
                 denom = exp_avg_sq.sqrt().add_(group["eps"])
 
                 step_size = group["lr"]
-                if group["correct_bias"]:  # No bias correction for Bert
+                if group["correct_bias"]:
                     bias_correction1 = 1.0 - beta1 ** state["step"]
                     bias_correction2 = 1.0 - beta2 ** state["step"]
                     step_size = step_size * math.sqrt(bias_correction2) / bias_correction1
