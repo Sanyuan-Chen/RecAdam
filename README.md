@@ -4,7 +4,7 @@
 
 We provide **RecAdam** (Recall Adam) optimizer to facilitate fine-tuning deep pretrained language models (e.g., BERT, ALBERT) with less forgetting.
 
-For a detailed description and experimental results, please refer to our paper: [Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting](https://arxiv.org/abs/2004.12651) (Accepted by EMNLP2020).
+For a detailed description and experimental results, please refer to our paper: [Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting](https://www.aclweb.org/anthology/2020.emnlp-main.634/) (Accepted by EMNLP 2020).
 
 ## Environment
 
@@ -115,12 +115,17 @@ python run_glue_with_RecAdam.py \
 ```
 
 ### Citation
-If you find RecAdam useful, please cite [our paper](https://arxiv.org/abs/2004.12651):
+If you find RecAdam useful, please cite [our paper](https://www.aclweb.org/anthology/2020.emnlp-main.634/):
 ```bibtex
-@article{recadam,
-  title={Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting},
-  author={Chen, Sanyuan and Hou, Yutai and Cui, Yiming and Che, Wanxiang and Liu, Ting and Yu, Xiangzhan},
-  journal={arXiv preprint arXiv:2004.12651},
-  year={2020}
+@inproceedings{recadam,
+    title = "Recall and Learn: Fine-tuning Deep Pretrained Language Models with Less Forgetting",
+    author = "Chen, Sanyuan  and  Hou, Yutai  and  Cui, Yiming  and  Che, Wanxiang  and  Liu, Ting  and  Yu, Xiangzhan",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.emnlp-main.634",
+    pages = "7870--7881",
 }
 ```
